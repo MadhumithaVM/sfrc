@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SFRC - Activities</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #2d2b4e;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      background-color: #2d2b4e;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .site-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    .menu {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      height: 100%;
+      width: 250px;
+      background-color: #1f1d38;
+      padding-top: 4rem;
+      transition: right 0.3s ease;
+      z-index: 1001;
+    }
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .sidebar .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: white;
+      border-bottom: 1px solid #444;
+      transition: background 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #3d3b60;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1000;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    section {
+      padding: 1.5rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .activity-img {
+      width: 100%;
+      max-width: 500px;
+      margin: 1rem auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 500px) {
+      .sidebar {
+        width: 100%;
+      }
+
+      .site-title {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <span class="close-btn" onclick="closeSidebar()">✖</span>
+    <a href="index.html" onclick="closeSidebar()">🏠 Home</a>
+    <a href="activities.html" onclick="closeSidebar()">📅 Activities</a>
+    <a href="register.html" onclick="closeSidebar()">📝 Register</a>
+    <a href="sponsors.html" onclick="closeSidebar()">🤝 Sponsors</a>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <img src="C:\Users\91637\OneDrive\Desktop\sfrc\assets\images\logo.jpg" alt="SFRC Logo">
+      <div class="site-title">Smart Farming Research Club</div>
+    </div>
+    <div class="menu" onclick="toggleSidebar()">☰</div>
+  </header>
+
+  <!-- Activities Section -->
+  <section>
+    <h1>ACTIVITIES</h1>
+
+    <div class="card">
+      <p>✅ Conducted Brain Storming session involving agricultural experts all over India.</p>
+      <p>✅ Renovation of the rain water harvesting pond.</p>
+      <p>✅ Cultivation and Successful Harvest of Greens.</p>
+      <p>✅ Conducted a Drone workshop in collaboration with AquaForge Robotics.</p>
+    </div>
+
+    <!-- Images -->
+    <img src="C:\Users\91637\OneDrive\Desktop\sfrc\assets\images\activities_1.jpg" alt="Activity 1" class="activity-img" />
+    <img src="C:\Users\91637\OneDrive\Desktop\sfrc\assets\images\activities_2.jpg" alt="Activity 2" class="activity-img" />
+    <img src="C:\Users\91637\OneDrive\Desktop\sfrc\assets\images\activities_3.jpg" alt="Activity 3" class="activity-img" />
+
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.add('open');
+      document.getElementById('overlay').classList.add('show');
+    }
+
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('overlay').classList.remove('show');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Farming Research Club</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #2d2b4e;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      background-color: #2d2b4e;
+      flex-wrap: wrap;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-grow: 1;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    .site-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .menu {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      height: 100%;
+      width: 250px;
+      background-color: #1f1d38;
+      padding-top: 4rem;
+      transition: right 0.3s ease;
+      z-index: 1001;
+    }
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .sidebar .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: white;
+      border-bottom: 1px solid #444;
+      transition: background 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #3d3b60;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1000;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    /* Main content */
+    section {
+      padding: 1.5rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    .heading-with-icon {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .heading-with-icon img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+    }
+
+    .heading-with-icon h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .collab-images img {
+      width: 100%;
+      max-width: 600px;
+      margin-top: 1rem;
+      border-radius: 10px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #444;
+    }
+
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-icons a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .footer-icons a:hover {
+      color: #00bfff;
+    }
+
+    @media (max-width: 500px) {
+      .footer-icons {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .site-title {
+        font-size: 1rem;
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <span class="close-btn" onclick="closeSidebar()">✖</span>
+    <a href="index.html" onclick="closeSidebar()">🏠 Home</a>
+    <a href="activities.html" onclick="closeSidebar()">📅 Activities</a>
+    <a href="register.html" onclick="closeSidebar()">📝 Register</a>
+    <a href="sponsors.html" onclick="closeSidebar()">🤝 Sponsors</a>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <img src="C:\Users\91637\OneDrive\Desktop\sfrc\assets\images\logo.jpg" alt="SFRC Logo">
+      <div class="site-title">Smart Farming Research Club</div>
+    </div>
+    <div class="menu" onclick="toggleSidebar()">☰</div>
+  </header>
+
+  <!-- Main Content -->
+  <section>
+    <div class="heading-with-icon">
+      <img src="assets/images/home_1.png" alt="Icon 1">
+      <h2>What do we stand for?</h2>
+    </div>
+    <div class="card">
+      To revolutionize agriculture by integrating advanced mechanization and IOT in field and post harvest operations, fostering a sustainable and profitable farming ecosystem.
+    </div>
+
+    <div class="heading-with-icon">
+      <img src="assets/images/home_2.png" alt="Icon 2">
+      <h2>What's next for us?</h2>
+    </div>
+    <div class="card">
+      Mechanize all field and post-harvest operations, integrating IOT for enhanced efficiency and establishing a highly efficient field monitoring and management system.
+    </div>
+
+    <div class="heading-with-icon">
+      <img src="assets/images/home_3.png" alt="Icon 3">
+      <h2>Get to know us</h2>
+    </div>
+    <div class="card">
+      Founded in 2014 by Er. Fr. Moorthi at CEG, Anna University, the club began as the Organic Farming Club (OFC) to prove organic farming’s profitability, supported by Actor Raghavendra Lawrance.
+      <br><br>
+      Activities paused during COVID-19, leading to a shift in focus. Instead of just practicing organic farming, the club began developing agricultural technology.
+      <br><br>
+      In 2023, it was re-launched by our Vice Chancellor as <strong>SFRC</strong>, now dedicated to technology-driven farming solutions.
+    </div>
+
+    <div class="heading-with-icon">
+      <h2>Collaboration With NSS, YRC, NSO and NCC</h2>
+    </div>
+    <div class="card">
+      As the first step of bringing students into the field, all the mandatory clubs like NSS, NSO, NCC and YRC were brought. Nearly 400 students have visited and worked in the farm as a part of this initiative.
+    </div>
+
+    <div class="collab-images">
+      <img src="C:\Users\91637\OneDrive\Desktop\sfrc\assets\images\collab_1.jpg" alt="Collab Image 1" />
+      <img src="C:\Users\91637\OneDrive\Desktop\sfrc\assets\images\collab_2.jpg" alt="Collab Image 2" />
+      <img src="C:\Users\91637\OneDrive\Desktop\sfrc\assets\images\collab_3.jpg" alt="Collab Image 3" />
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>© SFRC, CEG, Anna University</div>
+    <div class="footer-icons">
+      <a href="https://www.instagram.com/sfrc_au" target="_blank">
+        <i class="fab fa-instagram"></i> @sfrc_au
+      </a>
+      <a href="https://www.linkedin.com/company/smart-farming-research-club" target="_blank">
+        <i class="fab fa-linkedin"></i> Smart Farming Research Club
+      </a>
+      <a href="mailto:sfrccegau@gmail.com">
+        <i class="fas fa-envelope"></i> sfrccegau@gmail.com
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.add('open');
+      document.getElementById('overlay').classList.add('show');
+    }
+
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('overlay').classList.remove('show');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SFRC - Register</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #2d2b4e;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      background-color: #2d2b4e;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    .site-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .menu {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      height: 100%;
+      width: 250px;
+      background-color: #1f1d38;
+      padding-top: 4rem;
+      transition: right 0.3s ease;
+      z-index: 1001;
+    }
+
+    .sidebar.open {
+      right: 0;
+    }
+
+    .sidebar .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: white;
+      border-bottom: 1px solid #444;
+      transition: background 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #3d3b60;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1000;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+      font-weight: bold;
+    }
+
+    .section-text {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .illustration {
+      width: 90%;
+      max-width: 400px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    @media (max-width: 500px) {
+      .sidebar {
+        width: 100%;
+      }
+
+      .site-title {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <span class="close-btn" onclick="closeSidebar()">✖</span>
+    <a href="index.html" onclick="closeSidebar()">🏠 Home</a>
+    <a href="activities.html" onclick="closeSidebar()">📅 Activities</a>
+    <a href="register.html" onclick="closeSidebar()">📝 Register</a>
+    <a href="sponsors.html" onclick="closeSidebar()">🤝 Sponsors</a>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <img src="C:\Users\91637\OneDrive\Desktop\sfrc\assets\images\logo.jpg" alt="SFRC Logo">
+      <div class="site-title">Smart Farming Research Club</div>
+    </div>
+    <div class="menu" onclick="toggleSidebar()">☰</div>
+  </header>
+
+  <!-- Main Content -->
+  <section>
+    <h1>WORKSHOPS</h1>
+    <img src="assets/images/under_construction.svg" alt="Workshop" class="illustration">
+    <p class="section-text">Workshops ready to take root</p>
+
+    <div class="section-title">TECH EVENTS</div>
+    <img src="assets/images/coding.svg" alt="Tech Event" class="illustration">
+    <p class="section-text">Tech events yet to harvest</p>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.add('open');
+      document.getElementById('overlay').classList.add('show');
+    }
+
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('overlay').classList.remove('show');
+    }
+  </script>
+
+</body>
+</html>
